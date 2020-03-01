@@ -12,7 +12,7 @@ const app = express();
 const V1_PATH = '/api/v1';
 process.env['NODE_CONFIG_DIR'] = __dirname + '/config/';
 const PORT = process.env.PORT || 3000;
-const NODE_ENV = process.env.NODE_ENV || 'development';
+const NODE_ENV = process.env.NODE_ENV;
 let err;
 
 app.set('port', PORT);
