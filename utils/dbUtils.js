@@ -9,7 +9,8 @@ module.exports = (modelName, model) => {
         FINDALL: findAll,
         FINDONE: findOneById,
         DELETE: destroy,
-        FINDONEBYPARAMETER: findOneByParameter
+        FINDONEBYPARAMETER: findOneByParameter,
+        DELETEBYPARAMETER: deleteByParameter
     }
 
 }
@@ -32,6 +33,20 @@ const findOneById = async (identifier) => {
             reject(err);
         })
     })
+}
+
+const deleteByParameter = async (parameterName, parameterValue) => {
+    let query = null;
+    if (parameterName === "eventId") {
+        query = { eventId: parameterValue }
+    }
+    return new Promise((resolve, reject) => {
+        $model.destroy({ where: query }).then(data => {
+            resolve(data);
+        }).catch(err => {
+            reject(err);
+        });
+    });
 }
 
 const findOneByParameter = async (parameterName, parameterValue) => {
