@@ -1,3 +1,4 @@
 {
-    "dbUrl": "postgres://postgres:postgres@localhost:5432/bfinance"
+    "dbUrl1": "postgres://postgres:postgres@localhost:5432/bfinance",
+    "dbUrl": "postgres://appwsjlyvmpfog:f0bd4a7af7be3a3396c683edbf968821882d180ec490c1fa781e8cb66d940568@ec2-23-21-165-188.compute-1.amazonaws.com:5432/d3g5gvo6m5repa"
 }
