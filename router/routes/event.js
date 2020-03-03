@@ -49,8 +49,7 @@ const deleteEvent = async (req, res, next) => {
     let deletedEvent = await dbUtils('event', event).DELETE(eventId);
     if (deletedEvent) {
       let data = await dbUtils('transactions', transactions).DELETEBYPARAMETER("eventId",eventId);
-      console.log(deleteEvent)
-      res.send("Deleted : " + eventId);
+      res.json({msg:`Deleted eventId:  ${eventId}`});
     } else {
       res.status(500).send(`Error occurred while deleting event`)
     }
