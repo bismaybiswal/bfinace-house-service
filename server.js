@@ -1,4 +1,5 @@
 'use strict'
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
@@ -7,10 +8,8 @@ const _ = require("lodash");
 const cors = require('cors')
 const errorTemplate = require('./utils/errorTemplate');
 const errorCodes = require('./utils/errorCodes')();
-const authUtils = require("./utils/authUtils");
 const app = express();
 const V1_PATH = '/api/v1';
-process.env['NODE_CONFIG_DIR'] = __dirname + '/config/';
 const PORT = process.env.PORT || 3000;
 const NODE_ENV = process.env.NODE_ENV;
 let err;

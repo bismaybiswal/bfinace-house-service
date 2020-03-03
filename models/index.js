@@ -2,11 +2,17 @@
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
-const config = require("config");
 const basename = path.basename(__filename);
-
+const localConfig = require("../config/development.json");
+let options;
 // creating Database
-const options = config.get('dbUrl');
+if(process.env.NODE_ENV.toUpperCase() === "production".toUpperCase()){
+    options = process.env.DATABASE_URL;
+} else {
+    options = localConfig.dbUrl;
+}
+
+console.log("DB URL : " + options)
 const sequelize = new Sequelize(options, { logging: false });
 let db = {};
 
