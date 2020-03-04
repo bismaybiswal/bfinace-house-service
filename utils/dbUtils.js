@@ -55,7 +55,9 @@ const findOneByParameter = async (parameterName, parameterValue) => {
         query = { eventId: parameterValue }
     }
     return new Promise((resolve, reject) => {
-        $model.findAll({ where: query }).then(data => {
+        $model.findAll({
+            where: query, order: [['createdAt', 'ASC']]
+        }).then(data => {
             resolve(data);
         }).catch(err => {
             reject(err);
