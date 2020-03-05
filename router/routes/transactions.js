@@ -55,7 +55,7 @@ const deleteTransaction = async (req, res, next) => {
       let deletedTransaction = await dbUtils('transactions', transactions).DELETE(transactionId);
       if (deletedTransaction) {
         console.log(deletedTransaction)
-        res.send("Deleted : " + transactionId);
+        res.send({msg:"Deleted : " + transactionId});
       } else {
         res.status(500).send(`Error occurred while deleting transaction`)
       }
